@@ -11,10 +11,11 @@ Summary: Simplistic interactive filtering tool
 
 Development: https://github.com/peco/peco
 
+Documentation: https://github.com/peco/peco/blob/v0.5.11/README.md
+
 `peco` can be a great tool to filter stuff like logs,
 process stats, find files, because unlike grep,
 you can type as you think and look through the current results.
-
 
 Current build status
 ====================
