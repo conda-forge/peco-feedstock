@@ -1,13 +1,14 @@
-{% set org = "peco" %}
-{% set name = "peco" %}
-{% set version = "0.5.11" %}
+context:
+  org: peco
+  name: peco
+  version: "0.5.11"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/{{ org }}/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  url: https://github.com/${{ org }}/${{ name|lower }}/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 8e32c8af533e03795f27feb4ee134960611d2fc0266528b1c512a6f1f065b164
 
 build:
@@ -15,28 +16,27 @@ build:
 
 requirements:
   build:
-    - make
-    - {{ compiler('go-nocgo') }}
+    - ${{ compiler("go-nocgo") }}
     - go-licenses
+    - make
 
-test:
+tests:
   commands:
-    - {{ name }} --version  # [unix]
-    - {{ name }}.exe --version  # [win]
+    - ${{ name }} --version
 
 about:
-  home: https://github.com/{{ org }}/{{ name }}
+  homepage: https://github.com/${{ org }}/${{ name }}
+  repository: https://github.com/${{ org }}/${{ name }}
+  documentation: https://github.com/${{ org }}/${{ name }}/blob/v${{ version }}/README.md
+  summary: "Simplistic interactive filtering tool"
   license: MIT
-  license_family: MIT
   license_file:
     - LICENSE
     - license-files/
-  summary: "Simplistic interactive filtering tool"
   description: |
     `peco` can be a great tool to filter stuff like logs,
     process stats, find files, because unlike grep,
     you can type as you think and look through the current results.
-  dev_url: https://github.com/{{ org }}/{{ name }}
 
 extra:
   recipe-maintainers:
