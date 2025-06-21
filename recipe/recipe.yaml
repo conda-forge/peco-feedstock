@@ -21,7 +21,7 @@ requirements:
     - make
 
 tests:
-  script:
+  - script:
     - ${{ name }} --version
 
 about:
