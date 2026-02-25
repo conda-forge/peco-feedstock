@@ -18,6 +18,7 @@ requirements:
   build:
     - ${{ compiler("go-nocgo") }}
     - go-licenses
+    - goreleaser
     - make
 
 tests:
