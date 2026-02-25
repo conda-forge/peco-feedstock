@@ -1,7 +1,7 @@
 context:
   org: peco
   name: peco
-  version: "0.5.11"
+  version: "0.6.0"
 
 package:
   name: ${{ name|lower }}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/${{ org }}/${{ name|lower }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 8e32c8af533e03795f27feb4ee134960611d2fc0266528b1c512a6f1f065b164
+  sha256: 480ba339c5b15ebb9eada276d5e25315ee5c36e878d86dcfc1ea17f54a27197a
 
 build:
   number: 0
@@ -18,11 +18,12 @@ requirements:
   build:
     - ${{ compiler("go-nocgo") }}
     - go-licenses
+    - goreleaser
     - make
 
 tests:
   - script:
-    - ${{ name }} --version
+      - ${{ name }} --version
 
 about:
   homepage: https://github.com/${{ org }}/${{ name }}
